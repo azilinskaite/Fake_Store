@@ -1,1 +1,21 @@
-import "./style.css";
+import "./styles/footer.css";
+import "./styles/header.css";
+import "./styles/style.css";
+import "./styles/products-style.css";
+import "./styles/categories-style.css";
+import "./styles/homepage-style.css";
+import "./styles/cart.css";
+import "./styles/checkout-page-style.css";
+import { categoryPage } from "./scripts/pages/categoryPage.js";
+import { renderHomepage } from "./scripts/pages/homepage";
+import { headerComponent } from "./scripts/header/headerComponent.js";
+import { cartDisplay } from "./scripts/cart/displayCart.js";
+import { newsletter } from "./scripts/pages/newsletterPage.js";
+import { footer } from "./scripts/pages/footer";
+
+headerComponent();
+document.addEventListener('DOMContentLoaded', cartDisplay);
+categoryPage();
+renderHomepage();
+newsletter();
+footer();

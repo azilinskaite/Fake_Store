@@ -1,11 +1,72 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Squada+One&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap" rel="stylesheet" />
+
+  <title>Team2Shop - We have everything and more</title>
+
+  <link rel="icon" type="image/png" href="assets/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="assets/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="assets/favicon/site.webmanifest" />
+
 </head>
+
 <body>
-    
+  <div id="body-container">
+
+    <header id="header">
+      <div class="inner-header">
+        <button id="mainMenu">Menu</button>
+
+        <img id="logo">
+
+        <div class="cartButton">
+          <button id="cart-btn" class="span-color">CART
+            <span id="cart-count" class="cart-count">[0]</span>
+          </button>
+
+        </div>
+
+    </header>
+
+    <aside id="cartContainer"></aside>
+
+    <section id="homepage"></section>
+
+    <section id="categories">
+      <button id="allproducts">ALL PRODUCTS</button>
+      <button id="women's%20clothing">WOMEN'S CLOTHING</button>
+      <button id="men's%20clothing">MEN'S CLOTHING</button>
+      <button id="jewelery">JEWELERY</button>
+      <button id="electronics">ELECTRONICS</button>
+    </section>
+
+    <section id="products" class="product-container"></section>
+
+    <template id="productrow">
+      <div>
+        <p id="title"></p>
+        <p id="description"></p>
+        <p id="price"></p>
+        <button id="addToCart">Add to cart</button>
+        <br />
+      </div>
+    </template>
+
+    <section id="checkout-page"></section>
+
+    <section id="newsletter"></section>
+
+    <footer id="footer"></footer>
+
+  </div>
 </body>
+
 </html>

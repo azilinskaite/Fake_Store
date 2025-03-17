@@ -1,0 +1,70 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-color: #f5f1e0;
+  --text-color: #321e1d;
+  --outlines-color: #bdb498;
+  --contrast: #dfb8dd;
+}
+
+html {
+  font-size: 16px;
+}
+
+@font-face {
+  font-family: "Lexend";
+  src: url("../assets/fonts/Lexend-Variable.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Squada One";
+  src: url("../assets/fonts/SquadaOne-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1 {
+  font-family: "Squada One", Fallback, sans-serif;
+  font-size: 5rem;
+  font-weight: normal;
+}
+
+h2 {
+  font-family: "Squada One", Fallback, sans-serif;
+  font-size: 4rem;
+  font-weight: normal;
+}
+
+h3 {
+  font-family: "Squada One", Fallback, sans-serif;
+  font-size: 2rem;
+  font-weight: normal;
+}
+
+p {
+  font-family: "Lexend", Fallback, sans-serif;
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  font-family: "Lexend", Fallback, sans-serif;
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}

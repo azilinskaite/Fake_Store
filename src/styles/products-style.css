@@ -1,0 +1,134 @@
+/* Product Grid */
+.product-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+
+  .product {
+    border: 1px solid var(--outlines-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .product-image {
+    width: 100%;
+    height: 350px;
+    object-fit: contain;
+    background-color: #fff;
+    padding: 50px;
+  }
+
+  .add-to-cart {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #321e1d;
+    cursor: pointer;
+  }
+
+  .add-to-cart:hover {
+    transform: scale(1.1);
+    color: #321e1d;
+  }
+
+  .product-middle {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .product-title {
+    font-family: "Lexend", Arial, sans-serif;
+    font-size: 0.9rem;
+    color: #321e1d;
+    margin: 0;
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    cursor: pointer;
+    text-overflow: ellipsis;
+  }
+
+  .product-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #321e1d;
+  }
+
+  .product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+  }
+
+  .rating {
+    display: flex;
+    gap: 2px;
+  }
+
+  .rating i {
+    font-size: 1rem;
+    color: #ee9828;
+  }
+
+  .icons {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+    margin: 0 20px;
+    .product-image {
+      height: 200px;
+    }
+
+    .product-title {
+      font-size: 0.9rem;
+    }
+
+    .product-price {
+      font-size: 1rem;
+    }
+
+    .product-footer {
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .product-container {
+      padding: 10px;
+      gap: 10px;
+    }
+
+    .product {
+      min-height: 300px;
+    }
+
+    .product-image {
+      height: 180px;
+    }
+
+    .product-title {
+      font-size: 0.85rem;
+    }
+
+    .product-price {
+      font-size: 0.9rem;
+    }
+
+    .product-footer {
+      gap: 3px;
+    }
+  }
+}
