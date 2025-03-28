@@ -6,17 +6,17 @@
   padding: 1.5rem 1rem;
   border-top: 1px solid var(--outlines-color);
   border-bottom: 1px solid var(--outlines-color);
-}
-
-#categories button {
-  border: none;
-  border-radius: 5px;
-  color: var(--text-color);
-  opacity: 80%;
-  font-size: 2rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: 0.3s;
+  button {
+    background: none;
+    color: inherit;
+    border: none;
+    font-family: "Squada One", Fallback, sans-serif;
+    opacity: 80%;
+    font-size: 2rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+  }
 }
 
 #categories button:hover {
@@ -26,7 +26,6 @@
 
 #categories button.active {
   opacity: 100%;
-  font-weight: 600;
 }
 
 @media (max-width: 600px) {

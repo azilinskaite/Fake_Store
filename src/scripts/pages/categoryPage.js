@@ -1,11 +1,12 @@
 import { productFilter } from "../filters/productFilter";
 import { getProductsFromApi } from "../api/getProductsFromApi";
+import { renderProducts } from "./productsSection";
 
 export async function categoryPage() {
     const categories = [
         { id: 'allproducts', text: 'ALL PRODUCTS' },
-        { id: "women's%20clothing", text: "WOMEN'S CLOTHING" },
-        { id: "men's%20clothing", text: "MEN'S CLOTHING" },
+        { id: "women's clothing", text: "WOMEN'S CLOTHING" },
+        { id: "men's clothing", text: "MEN'S CLOTHING" },
         { id: 'jewelery', text: 'JEWELERY' },
         { id: 'electronics', text: 'ELECTRONICS' }
     ];
@@ -21,16 +22,35 @@ export async function categoryPage() {
         categoriesContainer.appendChild(button);
 
         button.addEventListener('click', () => {
-            categoriesContainer.querySelectorAll('button').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            button.classList.add('active');
+            updateActiveCategory(category.id);
         });
     });
 
-    categoriesContainer.querySelector('#allproducts').classList.add('active');
+    function updateActiveCategory(categoryId) {
+        categoriesContainer.querySelectorAll('button').forEach(btn => {
+          btn.classList.remove('active');
+        });
+        const activeButton = categoriesContainer.querySelector(`#${CSS.escape(categoryId)}`);
+        if (activeButton) {
+          activeButton.classList.add('active');
+        }
+
+        const apiEndpoint = categoryId === 'allproducts' 
+            ? 'products' 
+            : `products/category/${encodeURIComponent(categoryId)}`;
+        
+        getProductsFromApi(apiEndpoint)
+            .then(products => renderProducts(products));
+      }
+
+    document.addEventListener('categorySelected', (event) => {
+        updateActiveCategory(event.detail);
+    });
+
+    updateActiveCategory('allproducts');
 
     await productFilter();
     await getProductsFromApi("products");
 }
+
 

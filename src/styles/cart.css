@@ -1,11 +1,13 @@
 #cartCloseBtn,
 #removeProductBtn,
 #checkoutBtn {
-  background-color: transparent;
+  background: none;
   color: inherit;
   border: none;
-  font-family: "Squada One";
-  font-size: 2rem;
+  cursor: pointer;
+  font-family: "Squada One", Fallback, sans-serif;
+  font-size: 1.2rem;
+  font-weight: normal;
 }
 
 #cartContainer {

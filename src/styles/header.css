@@ -9,10 +9,10 @@
 #logo {
   width: 10rem;
   object-fit: contain;
-  z-index: 1;
+  z-index: 2;
 }
 
-button {
+#menuButton, #cart-btn {
   background: none;
   color: inherit;
   border: none;
@@ -20,11 +20,12 @@ button {
   font-family: "Squada One", Fallback, sans-serif;
   font-size: 1.2rem;
   font-weight: normal;
-  z-index: 1;
+  z-index: 2;
 }
 
 #popup-menu {
-  display: none;
+  visibility: hidden;
+  opacity: 0;
   width: 100vw;
   height: 100vh;
   background: var(--bg-color);
@@ -34,6 +35,9 @@ button {
   flex-direction: column;
   padding-top: 10rem;
   font-size: 3rem;
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in-out;
+  z-index: 1;
   a {
     cursor: pointer;
     display: block;
@@ -51,9 +55,10 @@ button {
 }
 
 #popup-menu.active {
-  display: flex;
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(0);
 }
-
 
 @media screen and (max-width: 767px) {
   #header {
