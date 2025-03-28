@@ -1,0 +1,23 @@
+.hero-container {
+  width: 100vw;
+  color: var(--text-color);
+
+  .image-container {
+    display: flex;
+    justify-content: center;
+    height: 25rem;
+    overflow: hidden;
+
+    img {
+      width: 140rem;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .image-container img {
+      height: 50vh;
+    }
+  }
+}

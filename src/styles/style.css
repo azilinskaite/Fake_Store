@@ -5,14 +5,10 @@
 }
 
 :root {
-  --bg-color: #f5f1e0;
+  --bg-color: #e7e0f5;
   --text-color: #321e1d;
   --outlines-color: #bdb498;
-  --contrast: #dfb8dd;
-}
-
-html {
-  font-size: 16px;
+  --contrast: #f6bef3;
 }
 
 @font-face {
@@ -61,10 +57,12 @@ body {
   font-family: "Lexend", Fallback, sans-serif;
   font-size: 1rem;
   font-weight: normal;
+  color: var(--text-color);
+  background-color: var(--bg-color);
 }
 
 .container {
-  max-width: 1000px;
+  max-width: 60rem;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 1.5rem;
 }

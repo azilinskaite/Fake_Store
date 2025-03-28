@@ -1,25 +1,46 @@
 import teamLogo from "../../assets/img/team_2_logo_big.png";
 
 export function headerComponent() {
-    const mainMenuSelector = document.querySelector("#mainMenu");
-    const popupSelector = document.querySelector("#popup");
-    const bodySelector = document.querySelector("body");
+    const header = document.createElement('header');
+    header.id = 'header';
+    header.innerHTML = `
+            <button id="menuButton">MENU</button>
+            <img id="logo">
+            <div class="cartButton">
+                <button id="cart-btn" class="span-color">CART
+                    <span id="cart-count" class="cart-count">[0]</span>
+                </button>
+            </div>
+        <nav id="popup-menu">
+            <a href="#">ALL PRODUCTS</a>
+            <a href="#">WOMEN'S CLOTHING</a>
+            <a href="#">MEN'S CLOTHING</a>
+            <a href="#">JEWELERY</a>
+            <a href="#">ELECTRONICS</a>
+        </nav>
+    `;
 
-    // Menu button
-    mainMenuSelector.addEventListener("click", () => {
-        if (popupSelector.style.display === "flex") {
-            popupSelector.style.display = "none";
+    const menuButton = header.querySelector("#menuButton");
+    const popupSelector = header.querySelector("#popup-menu");
+    const bodySelector = document.body;
+
+    menuButton.addEventListener("click", () => {
+        if (popupSelector.classList.contains('active')) {
+            popupSelector.classList.remove('active');
             bodySelector.style.height = "auto";
             bodySelector.style.overflow = "visible";
-            mainMenuSelector.textContent = "Menu";
+            menuButton.textContent = "MENU";
         } else {
+            popupSelector.classList.add('active');
             bodySelector.style.height = "100vh";
             bodySelector.style.overflow = "hidden";
-            mainMenuSelector.textContent = "Close";
+            menuButton.textContent = "CLOSE";
         }
     });
 
-    // Logo
-    const logoSelector = document.querySelector("#logo");
+    const logoSelector = header.querySelector("#logo");
     logoSelector.src = teamLogo;
+
+    return header;
 }
+
