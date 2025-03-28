@@ -1,4 +1,4 @@
-import image from "../../assets/img/visual_1.jpg";
+import heroImage from "../../assets/img/visual_1.jpg";
 
 export function heroSection() {
   const root = document.getElementById("hero");
@@ -7,7 +7,7 @@ export function heroSection() {
     root.innerHTML = `
       <div class="hero-container">
         <div class="image-container">
-          <img src="${image}" alt="Hero Visual" />
+          <img src="${heroImage}" alt="Hero Visual" />
         </div>
       </div>
     `;

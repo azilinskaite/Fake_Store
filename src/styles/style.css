@@ -59,6 +59,7 @@ body {
   font-weight: normal;
   color: var(--text-color);
   background-color: var(--bg-color);
+  height: 100%;
 }
 
 .container {

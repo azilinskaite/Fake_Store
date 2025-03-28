@@ -1,19 +1,18 @@
-import imageTwo from "../../assets/img/visual_2.jpg";
+import newsletterImage from "../../assets/img/visual_2.jpg";
 
-export function newsletter() {
+export function newsletterSection() {
     const newsletter = document.getElementById("newsletter");
     newsletter.innerHTML = `
-            <!-- Newsletter Section -->
         <div class="newsletter-container">
           <div class="newsletter-image">
             <img
-              src="${imageTwo}"
+              src="${newsletterImage}"
               alt="Newsletter Background"
               class="background-image"
             />
           </div>
           <div class="input-content">
-            <div><h1>Subscribe for Exclusive News</h1></div>
+            <h3>Subscribe for Exclusive News</h3>
             <div class="input-wrapper">
               <input type="text" placeholder="Enter your email" />
               <button>SIGN UP</button>

@@ -1,21 +1,27 @@
 import { addToCart } from "../cart/addToCart";
 
-export function renderProducts(products) {
+export function renderProducts(products = []) {
+  if (!Array.isArray(products)) {
+      console.error("Invalid products data:", products);
+      return;
+  }
+
   const productsSelector = document.querySelector("#products");
   productsSelector.innerHTML = "";
 
   products.forEach(product => {
-    const productCard = createProductCard(product);
-    productsSelector.appendChild(productCard);
-    addRatingStars(productCard, product.rating.rate);
+      const productCard = createProductCard(product);
+      productsSelector.appendChild(productCard);
+      addRatingStars(productCard, product.rating.rate);
   });
 
   productsSelector.addEventListener('click', (event) => {
-    if (event.target.classList.contains('add-to-cart')) {
-      addToCart(event.target.value);
-    }
+      if (event.target.classList.contains('add-to-cart')) {
+          addToCart(event.target.value);
+      }
   });
 }
+
 
 function createProductCard(product) {
   const productCard = document.createElement("div");

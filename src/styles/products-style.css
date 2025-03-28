@@ -1,131 +1,69 @@
 .product-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
   .product {
     border: 1px solid var(--outlines-color);
+    padding: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     overflow: hidden;
     cursor: pointer;
   }
-
   .product-image {
     width: 100%;
-    height: 350px;
+    height: 23rem;
     object-fit: contain;
-    /* background-color: #fff; */
-    padding: 2.5rem;
+    padding: 2rem;
     mix-blend-mode: multiply;
-
   }
-
   .add-to-cart {
     font-size: 1.2rem;
-    font-weight: bold;
-    color: #321e1d;
     cursor: pointer;
+    transition: 0.3s;
   }
-
   .add-to-cart:hover {
     transform: scale(1.1);
-    color: #321e1d;
   }
-
   .product-middle {
     display: flex;
     justify-content: space-between;
-    padding: 10px 20px;
+    padding: 1rem;
     align-items: center;
     gap: 5px;
   }
-
   .product-title {
-    font-family: "Lexend", Arial, sans-serif;
-    font-size: 0.9rem;
-    color: #321e1d;
-    margin: 0;
+    font-size: 1rem;
+    max-width: 36ch;
     flex: 1;
     white-space: nowrap;
     overflow: hidden;
     cursor: pointer;
     text-overflow: ellipsis;
   }
-
   .product-price {
     font-size: 1.2rem;
     font-weight: bold;
     color: #321e1d;
   }
-
   .product-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 0 1rem;
   }
-
-  .rating {
-    display: flex;
-    gap: 2px;
-  }
-
   .rating i {
     font-size: 1rem;
-    color: #ee9828;
+    color: #eebc28;
   }
-
   .icons {
     display: flex;
     gap: 0.5rem;
   }
-
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
-    margin: 0 20px;
-    .product-image {
-      height: 200px;
-    }
-
-    .product-title {
-      font-size: 0.9rem;
-    }
-
-    .product-price {
-      font-size: 1rem;
-    }
-
-    .product-footer {
-      flex-direction: column;
-      align-items: center;
-      gap: 5px;
-    }
-  }
+}
 
   @media (max-width: 480px) {
     .product-container {
-      padding: 10px;
-      gap: 10px;
-    }
-
-    .product {
-      min-height: 300px;
-    }
-
-    .product-image {
-      height: 180px;
-    }
-
-    .product-title {
-      font-size: 0.85rem;
-    }
-
-    .product-price {
-      font-size: 0.9rem;
-    }
-
-    .product-footer {
-      gap: 3px;
+      grid-template-columns: 1fr;
     }
   }
-}

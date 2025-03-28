@@ -12,7 +12,7 @@ import { cartDisplay } from "./scripts/cart/displayCart.js";
 import { heroSection } from "./scripts/pages/hero.js";
 import { categoryPage } from "./scripts/pages/categoryPage.js";
 import { renderProducts } from "./scripts/pages/productsSection.js";
-import { newsletter } from "./scripts/pages/newsletterPage.js";
+import { newsletterSection } from "./scripts/pages/newsletterSection.js";
 import { footer } from "./scripts/pages/footer";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -22,6 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
   heroSection();
   categoryPage();
   renderProducts();
-  newsletter();
+  newsletterSection();
   footer();
 });
