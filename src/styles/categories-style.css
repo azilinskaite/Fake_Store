@@ -1,35 +1,32 @@
 #categories {
   left: 0;
   width: 100%;
-  z-index: 2;
   display: flex;
-  gap: 15px;
-  padding: 1rem 10px 15px 10px;
+  gap: 2rem;
+  padding: 1.5rem 1rem;
   border-top: 1px solid var(--outlines-color);
   border-bottom: 1px solid var(--outlines-color);
 }
 
 #categories button {
-  font-family: "Squada One", sans-serif;
-  padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  color: #321e1d;
-  opacity: 70%;
-  font-size: 1.8rem;
-  font-weight: bold;
+  color: var(--text-color);
+  opacity: 80%;
+  font-size: 2rem;
+  font-weight: 500;
   cursor: pointer;
+  transition: 0.3s;
 }
 
 #categories button:hover {
-  color: #321e1d;
   opacity: 100%;
   transform: scale(1.05);
 }
 
-#categories button:active {
-  transform: scale(0.95); 
-  color: #321e1d;
+#categories button.active {
+  opacity: 100%;
+  font-weight: 600;
 }
 
 @media (max-width: 600px) {

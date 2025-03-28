@@ -1,11 +1,6 @@
-/* Product Grid */
 .product-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 20px;
-  padding: 20px;
-  box-sizing: border-box;
-
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
   .product {
     border: 1px solid var(--outlines-color);
     display: flex;
@@ -19,8 +14,10 @@
     width: 100%;
     height: 350px;
     object-fit: contain;
-    background-color: #fff;
-    padding: 50px;
+    /* background-color: #fff; */
+    padding: 2.5rem;
+    mix-blend-mode: multiply;
+
   }
 
   .add-to-cart {
