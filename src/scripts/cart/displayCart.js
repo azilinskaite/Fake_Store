@@ -25,7 +25,6 @@ export function cartDisplay() {
 
   root.innerHTML = cartStructure;
 
-
   const checkoutSelector = document.querySelector("#checkoutBtn");
 
   checkoutSelector.addEventListener("click", () => {
@@ -39,34 +38,31 @@ export function cartDisplay() {
       root.classList.toggle("showCartContainer");
     });
   }
-
   renderCartItems();
   setupEventListeners();
 }
 
 function renderCartItems() {
   const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-  console.log("Cart items:", cartItems);
 
   const cartProductsContainer = document.querySelector(".cart-products-container");
 
-  // Check if container exists
   if (!cartProductsContainer) {
     console.error("Cart products container not found!");
-    return; // Exit if the container is missing
+    return; 
   }
 
-  cartProductsContainer.innerHTML = ""; // Clear the container initially
+  cartProductsContainer.innerHTML = ""; 
+  const amountInCart = document.getElementById("cart-count");
 
   if (cartItems.length === 0) {
     // Display "empty cart" message if there are no items
     const subtotalElement = document.getElementById("subtotalPrice");
     subtotalElement.textContent = "$0"; 
 
-    const amountInCart = document.getElementById("cart-count");
-    amountInCart.textContent = "0"; 
-
-
+    if (amountInCart) {
+      amountInCart.textContent = "0";
+    }
 
     cartProductsContainer.innerHTML = `
       <div style="text-align: center; margin-top: 20px;">
@@ -84,15 +80,17 @@ function renderCartItems() {
     if (product) {
       // Render cart item if the product exists
       const cartProductHTML = createCartItemHTML(item, product);
-      console.log(cartProductHTML);
       cartProductsContainer.insertAdjacentHTML("beforeend", cartProductHTML);
     }
   });
 
-  // Update subtotal
   updateSubtotal(cartItems);
+  const totalQuantity = cartItems.reduce((total, item) => total + item.quantity, 0);
+  
+  if (amountInCart) {
+    amountInCart.textContent = totalQuantity;
+  }
 }
-
 
 function createCartItemHTML(item, product) {
   return `
@@ -117,18 +115,6 @@ function createCartItemHTML(item, product) {
     </div>`;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
 export function getProductDetails(productId) {
   const products = JSON.parse(localStorage.getItem("products")) || [];
   return products.find((product) => String(product.id) === String(productId));
@@ -148,29 +134,6 @@ export function updateSubtotal(cartItems) {
 
   return subtotal; 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 function setupEventListeners() {
   document.addEventListener("click", (event) => {

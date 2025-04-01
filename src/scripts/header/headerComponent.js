@@ -1,6 +1,7 @@
 import teamLogo from "../../assets/img/team_2_logo_big.png";
 import { getProductsFromApi } from "../api/getProductsFromApi";
 import { renderProducts } from "../pages/productsSection";
+import { cartDisplay } from "../cart/addToCart";
 
 export function headerComponent() {
   const header = document.createElement("header");
@@ -78,7 +79,5 @@ navLinks.forEach((link) => {
     document.dispatchEvent(categoryEvent);
   });
 });
-
-
   return header;
 }
