@@ -14,10 +14,11 @@
       object-fit: cover;
     }
   }
-
-  @media (max-width: 768px) {
-    .image-container img {
-      height: 50vh;
-    }
-  }
 }
+
+  @media (max-width: 480px) {
+    .image-container {
+      height: 15rem;
+    }
+
+  }

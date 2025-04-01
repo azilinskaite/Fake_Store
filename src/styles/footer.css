@@ -18,3 +18,12 @@ footer {
     justify-content: space-between;
   }
 }
+
+@media (max-width: 480px) {
+  footer {
+    padding: 2rem 0rem 0.5rem 0rem;
+    .small-info {
+      flex-direction: column;
+    }
+  }
+}

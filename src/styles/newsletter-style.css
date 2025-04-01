@@ -23,18 +23,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 25px;
+    gap: 1rem;
     position: absolute;
     h3 {
       color: var(--bg-color);
       font-size: 4rem;
     }
     .input-wrapper {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
       input {
-        padding: 1.16rem 2rem;
+        padding: 1rem 2rem;
         background-color: var(--bg-color);
         border: none;
       }
@@ -50,6 +50,26 @@
   }
 }
 
-  @media (max-width: 768px) {
-
+@media (max-width: 480px) {
+  .newsletter-container {
+    height: 20rem;
+    .newsletter-image {
+      img {
+        height: 20rem;
+      }
+    }
+    .input-content {
+      h3 {
+        font-size: 3rem;
+        padding: 0 2rem;
+      }
+      .input-wrapper {
+        flex-direction: column;
+        gap: 0.5rem;
+        button {
+          padding: 1rem 4.7rem;
+        }
+      }
+    }
+  }
 }
