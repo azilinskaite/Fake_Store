@@ -1,7 +1,9 @@
-# Ecommerce store
-School project to start working with Scrum and Jest.
+## Ecommerce store
 
-We worked with 6 people on a small ecommerce store. When you work on a project this size you need to work with a management framework, we used Scrum. We used sprints and tools like Asana or Notion to keep track of tasks and make sure everyone was on the same page.
+The project was built using JavaScript, featuring product data retrieval from an API. 
+Shopping cart functionality allows users to add products and update quantities. 
+Implemented product filters help users to sort items by category.
+School project. We worked in a small team, practicing Scrum methodology. 
 
 ## How it works
 
@@ -14,15 +16,3 @@ We worked with 6 people on a small ecommerce store. When you work on a project t
   - If the product ID already exists in the cart, the quantity is updated.
   - If the product ID does not exist, the object is added to the cart array.
 - **Cart Storage**: The cart data is stored in `localStorage`, so that when you come back to the site it will be there.
-
-## Improvements
-- We could build a Cron loading the products every day and displaying them using JSON. This creates way faster loading speed.
-- Adding more Jest checks like:
-    - Is the hamburger menu working
-    - Are there products in the categories
-    - Does the cart open
-    - How many payment options are there
-- Use of coding guidelines
-- Better use of the DRY principle
-- Removing the innerHTML methods for better security
-- SEO and pagespeed improvements
