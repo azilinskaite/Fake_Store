@@ -43,6 +43,8 @@
         border: none;
         background-color: var(--bg-color);
         cursor: pointer;
+        font-family: "Squada One", Fallback, sans-serif;
+        font-size: 1.2rem;
       }
     }
   }

@@ -7,6 +7,11 @@ export function renderProducts(products = []) {
   }
 
   const productsSelector = document.querySelector("#products");
+  if (!productsSelector) {
+    console.error("#products container not found!");
+    return;
+  }
+
   productsSelector.innerHTML = "";
 
   products.forEach(product => {
@@ -22,17 +27,15 @@ export function renderProducts(products = []) {
   });
 }
 
-
 function createProductCard(product) {
   const productCard = document.createElement("div");
   productCard.className = "product";
 
-  productCard.appendChild(createProductImage(product.image, product.title));
+  const productImage = createProductImage(product.image, product.title);
+  const middleSection = createMiddleSection(product.title, product.price);
+  const footerSection = createFooterSection(product.id, product.rating.rate);
 
-  productCard.appendChild(createMiddleSection(product.title, product.price));
-
-  productCard.appendChild(createFooterSection(product.id, product.rating.rate));
-
+  productCard.append(productImage, middleSection, footerSection);
   return productCard;
 }
 
@@ -66,7 +69,6 @@ function createFooterSection(productId, rating) {
 
   const ratingDiv = document.createElement('div');
   ratingDiv.classList.add('rating');
-  ratingDiv.dataset.rating = rating;
 
   const iconsDiv = document.createElement('div');
   iconsDiv.classList.add('icons');
