@@ -5,8 +5,6 @@ Shopping cart functionality allows users to add products and update quantities.
 Implemented product filters help users to sort items by category.
 School project. We worked in a small team, practicing Scrum methodology. 
 
-## How it works
-
 ### Product data
 - **Fetching Products**: Product data is retrieved from the API and stored in `localStorage` for caching purposes. We encounterd a slow API and we found a sollution for it. With this method we can have faster load times and less API calls.
 
