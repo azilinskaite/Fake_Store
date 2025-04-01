@@ -57,6 +57,7 @@
           background-color: white;
           object-fit: contain;
           object-position: center;
+          mix-blend-mode: multiply;
         }
         .cart-product-name {
           text-align: left;
@@ -69,12 +70,15 @@
           p {
             font-weight: 600;
           }
-          #removeProductBtn {
-            text-align: left;
-            font-family: "Lexend", Fallback, sans-serif;
-            font-size: 1rem;
+          .removeProductBtn {
+            font-family: "Squada One", Fallback, sans-serif;
+            background-color: transparent;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: 0.3s;
             &:hover {
-              cursor: pointer;
+              transform: scale(1.1);
             }
           }
           .quantity-and-price {
