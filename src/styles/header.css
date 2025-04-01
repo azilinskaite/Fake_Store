@@ -9,7 +9,7 @@
 #logo {
   width: 10rem;
   object-fit: contain;
-  z-index: 2;
+  z-index: 10;
 }
 
 #menuButton, #cart-btn {

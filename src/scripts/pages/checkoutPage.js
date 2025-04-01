@@ -1,6 +1,6 @@
 import paypalIcon from "../../assets/img/paypal_icon.svg";
 import paypalLogo from "../../assets/img/paypal-logo.png";
-import { getProductDetails } from "../../scripts/cart/displayCart.js"; // Import existing helper function
+import { getProductDetails } from "../../scripts/cart/displayCart.js";
 
 export function renderCheckoutCart() {
 
@@ -59,11 +59,30 @@ export async function renderCheckoutPage() {
     root.innerHTML = `
       <div class="checkout-container">
 
-      <button id="closeButton">x</button>
+      <button id="closeButton">CLOSE</button>
+
+      <section class="customer-info">
+        <h2>Customer Information</h2>
+        <form id="form">
+          <input type="text" id="customer-name" placeholder="Full Name" required />
+          <input type="email" id="customer-email" placeholder="Email Address" required />
+          <input type="tel" id="customer-phone" placeholder="Phone Number" required />
+        </form>
+      </section>
+
+      <section class="delivery-details">
+        <h2>Delivery Details</h2>
+        <form id="form">
+          <input type="text" id="address-line-1" placeholder="Address Line 1" required />
+          <input type="text" id="address-line-2" placeholder="Address Line 2 (Optional)" />
+          <input type="text" id="city" placeholder="City" required />
+          <input type="text" id="postal-code" placeholder="Postal Code" required />
+        </form>
+      </section>
 
         <div class="payment-container">
-          <div class="details-section">
-            <p class="payment-title">Payment</*>
+          <div class="payment-details">
+            <h2 class="payment-title">Payment</h2>
             <details class="details">
               <summary>Credit Card</summary>
               <div class="details-input">
@@ -131,7 +150,12 @@ export async function renderCheckoutPage() {
           </div>
           <button class="pay-button">Pay now</button>
         </div>
+
+        <section class="order-summary">
+        <h2>Order Summary</h2>
         <div class="final-product-container"></div>
+      </section>
+        
       </div>
     `;
 
