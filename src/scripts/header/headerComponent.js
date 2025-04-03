@@ -1,4 +1,5 @@
 import teamLogo from "../../assets/img/team_2_logo_big.png";
+import { productFilter } from "../filters/productFilter";
 import { getProductsFromApi } from "../api/getProductsFromApi";
 import { renderProducts } from "../pages/productsSection";
 
@@ -28,8 +29,15 @@ export function headerComponent() {
   const popupSelector = header.querySelector("#popup-menu");
   const bodySelector = document.body;
   const logoSelector = header.querySelector("#logo");
-
   logoSelector.src = teamLogo;
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const productsContainer = document.getElementById("products");
+    if (!productsContainer) {
+      console.error("#products container not found!");
+      return;
+    }
+  });
 
   function toggleMenu(isOpen) {
     if (isOpen) {
@@ -50,37 +58,59 @@ export function headerComponent() {
     toggleMenu(isOpen);
   });
 
+  async function updateActiveCategory(categoryId) {
+    popupSelector.querySelectorAll("a").forEach((link) => {
+      link.classList.remove(ACTIVE_CLASS);
+    });
+
+    const activeLink = popupSelector.querySelector(
+      `[data-category="${CSS.escape(categoryId)}"]`
+    );
+    if (activeLink) {
+      activeLink.classList.add(ACTIVE_CLASS);
+    }
+
+    const apiEndpoint =
+      categoryId === "allproducts"
+        ? "products"
+        : `products/category/${encodeURIComponent(categoryId)}`;
+
+    try {
+      const products = await getProductsFromApi(apiEndpoint);
+      renderProducts(products);
+
+      // Initialize filters after rendering products
+      await productFilter();
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Failed to load products");
+    }
+  }
+
   popupSelector.addEventListener("click", async (event) => {
     if (event.target.tagName === "A") {
       event.preventDefault();
 
       const category = event.target.dataset.category;
-      let products;
 
-      try {
-        if (category === "allproducts") {
-          products = await getProductsFromApi("products");
-        } else {
-          const encodedCategory = encodeURIComponent(category);
-          products = await getProductsFromApi(
-            `products/category/${encodedCategory}`
-          );
-        }
+      // Dispatch custom event
+      const categoryEvent = new CustomEvent("categorySelected", {
+        detail: category,
+      });
+      document.dispatchEvent(categoryEvent);
 
-        renderProducts(products);
-        toggleMenu(false);
-
-        const categoryEvent = new CustomEvent("categorySelected", {
-          detail: category,
-        });
-        document.dispatchEvent(categoryEvent);
-      } catch (error) {
-        console.error("Error fetching or rendering products:", error);
-        alert("Something went wrong while loading products.");
-      }
+      toggleMenu(false); // Close menu after selection
     }
+  });
+
+  document.addEventListener("categorySelected", (event) => {
+    console.log("Category selected:", event.detail); // Debug log
+    updateActiveCategory(event.detail);
+  });
+
+  document.addEventListener("DOMContentLoaded", async () => {
+    await updateActiveCategory("allproducts");
   });
 
   return header;
 }
-

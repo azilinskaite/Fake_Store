@@ -34,7 +34,7 @@
       align-items: center;
       gap: 1rem;
       input {
-        padding: 1rem 2rem;
+        padding: 1.15rem 2rem;
         background-color: var(--bg-color);
         border: none;
       }
